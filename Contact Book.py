@@ -8,9 +8,9 @@ class ContactBookApp:
         
         self.contacts = []
         
-        self.widgets()
+        self.create_widgets()
         
-    def widgets(self):
+    def create_widgets(self):
         # Labels and Entries for Contact Information
         tk.Label(self.master, text="Name:").grid(row=0, column=0, sticky="w", padx=5, pady=5)
         self.entry_name = tk.Entry(self.master)
@@ -35,7 +35,9 @@ class ContactBookApp:
         tk.Button(self.master, text="Update Contact", command=self.update_contact).grid(row=7, column=0, columnspan=2, pady=5)
         tk.Button(self.master, text="Delete Contact", command=self.delete_contact).grid(row=8, column=0, columnspan=2, pady=5)
         
-        
+        # Listbox to display contacts
+        self.contact_listbox = tk.Listbox(self.master, width=50)
+        self.contact_listbox.grid(row=9, column=0, columnspan=2, padx=5, pady=5)
         
     def add_contact(self):
         name = self.entry_name.get()
